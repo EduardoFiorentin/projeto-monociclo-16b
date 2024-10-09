@@ -1,0 +1,4 @@
+li 4, r0
+li 10, r1
+sw r1, r0
+lw r0, r2

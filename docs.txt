@@ -1,0 +1,63 @@
+INSTRUÇÕES 
+code    sintaxe                 semantica                           type
+00-     add rs1, rs2, rd        rd <- rs1 + rs2                     1
+01-     
+02-     sub  rs1, rs2, rd       rd <- rs1 - rs2                     1
+03-     mul  rs1, rs2, rd       rd <- rs1 * rs2                     1
+04-     div rs1, rs2, rd        rd <- rs1 / rs2                     1
+05-     lw r_addr, rd           rd <- (rs1)                         1
+06-     sw ro, r_addr           rd -> (rs1)                        1
+07-     beq imm8                se (r0 == r1) PC = PC + imm8        2
+08-     bne imm8                se (r0 != r1) PC = PC + imm8        2
+09-     bge imm8                se (r0 >= r1) PC = PC + imm8        2
+10-     blt imm8                se (r0 < r1)  PC = PC + imm8        2
+11-     jal imm8                PC <- PC + imm8      3
+12-     
+13-     li imm8, rd             rd <- imm8                          3
+14-     
+15-     end                     finaliza programa 
+
+? jalr rd, imm4(rs1)      rd <- PC + 1 | PC <- PC + imm4      2
+? mv rd, rs1              rd <- rs1                           1       add rd, rs1, 0000
+
+codigo de instrução 
+00-     add     0000 r      v
+01-             0001        v
+02-     sub     0010 r      v
+03-     mul     0011 r      v
+04-     div     0100 r      v
+05-     lw      0101 r      v
+06-     sw      0110 n      v
+07-     beq     0111 n      
+08-     bne     1000 n
+09-     bge     1001 n
+10-     blt     1010 n
+11-     jal     1011 n      
+12-        
+13-     li      1101 r      v
+14-             1110
+15-     end     1111 n      v    1111000000000000
+
+
+
+
+FORMATO INSTRUÇÃO 
+
+TIPO 1
+    aaaa-bbbb-cccc-dddd
+    a - codigo da INSTRUÇÃO
+    b - rs1
+    c - rs2 
+    d - rd
+
+
+TIPO 2
+    aaaa-ffffffff-dddd 
+    a - codigo da instrução
+    f - imm8
+    d - rd
+
+
+EXEMPLOS
+
+

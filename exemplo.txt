@@ -1,0 +1,53 @@
+Incrementar o valor de todos os registradores de 1 a 10
+li 10, r0;
+li 0, r1;
+li 1, r2;
+add r1, r2, r1;
+add r3, r2, r3;
+add r4, r2, r4; 
+add r5, r2, r5; 
+add r6, r2, r6; 
+add r7, r2, r7; 
+add r8, r2, r8; 
+add r9, r2, r9; 
+add r10, r2, r10; 
+add r11, r2, r11; 
+add r12, r2, r12; 
+add r13, r2, r13; 
+add r14, r2, r14; 
+add r15, r2, r15; 
+bne -14;
+
+
+teste com todas as operações 
+li r0, 16
+li r1, 8
+add r2, r0, r1
+sub r3, r0, r1
+sub r4, r1, r0
+mul r5, r1, r0
+div r6, r0, r1
+li r10, 0
+sw r2, r10
+li r10, 1
+sw r3, r10
+li r10, 1
+sw r4, r10
+
+
+carregar um valor em cada registrador 
+li r1, 1;
+li r2, 2;
+li r3, 3;
+li r4, 4;
+li r5, 5;
+li r6, 6;
+li r7, 7;
+li r8, 8;
+li r9, 9;
+li r10, 10;
+li r11, 11;
+li r12, 12;
+li r13, 13;
+li r14, 14;
+li r15, 15;
