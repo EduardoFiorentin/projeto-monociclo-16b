@@ -9,8 +9,8 @@
 
 using namespace std;
 
-#define DEFAULT_INPUT_FILENAME "index"
-#define DEFAULT_OUTPUT_FILENAME "instructions"
+#define DEFAULT_INPUT_FILENAME "index.txt"
+#define DEFAULT_OUTPUT_FILENAME "instructions.txt"
 #define INST_LINE_SIZE 4
 
 string generate_bitset_const_8(int value) {
@@ -48,7 +48,7 @@ void print_string_vector(vector<string> &vector) {
 
 void replace_instructions(vector<string> &instructions) {
 
-    print_string_vector(instructions); 
+    // print_string_vector(instructions); 
 
     // main rules
     vector<pair<regex, string>> main_rules = {
@@ -84,9 +84,7 @@ void replace_instructions(vector<string> &instructions) {
 
         while (regex_search(instruction, matches, const_pattern)) {
             num = stoi(matches.str()); 
-            cout << num << " -> " << generate_bitset_const_8(num);
             instruction = regex_replace(instruction, const_pattern, generate_bitset_const_8(num), regex_constants::format_first_only);
-            cout << " -> " << instruction << endl;
         }
 
     }

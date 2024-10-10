@@ -40,6 +40,7 @@ O projeto é composto por dois principais componentes:
 
 1. **Abrir o arquivo "circuit.dig"**:
    - Utilize o software **Digital**. Certifique-se de que o **GHDL** está configurado para rodar no Digital.
+   - Talvez sejam necessários ajustes nas rotas da inclusão dos componentes vhdl. Para isso, basta clicar com o botão direito em cada componente e selecionar o seu arquivo .vhd correspondente.
 
 2. **Montagem e Carregamento de Instruções**:
    - Escreva o programa desejado em um arquivo de texto.
@@ -51,14 +52,17 @@ O projeto é composto por dois principais componentes:
 
 3. **Carregar Instruções no Circuito**:
    - Inicie a simulação no **Digital**.
-   - Clique com o botão esquerdo na **memória de instrução**, selecione todos os slots e cole as instruções geradas pelo assembler.
+   - Copie as instruções geradas pelo assembler.
+   - Clique com o botão esquerdo na **memória de instrução**, selecione todos os slots e pressione `ctrl + v` para carregar as instruções na memória.
+   
+OBS: Não é necessário selecionar os slots da memória até o final, apenas a quantidade necessária de slots para que caibam todas as instruções, porém é importante que as linhas selecionadas sejam por completo para garantir a integridade da ordem das instruções. 
 
 4. **Executar o Programa**:
-   - Para iniciar a execução das instruções, defina a **entrada do clock** como alta (high).
-   - O controlador executará as instruções até atingir a instrução de fim (`end`), momento em que o **contador de programa** (PC) irá parar de incrementar.
+   - Para iniciar a execução das instruções, defina a entrada **start** como alta (high).
+   - O controlador executará as instruções até atingir a instrução `end` (adicionada automaticamente pelo montador ao final do programa), momento em que o **contador de programa** (PC) irá parar de incrementar.
 
 5. **Visualizar Resultados**:
-   - Durante a execução, os valores dos **registradores** e **memória de dados** podem ser visualizados clicando com o botão esquerdo no respectivo banco.
+   - Durante a execução, os valores dos **registradores** e **memória de dados** podem ser visualizados clicando com o botão esquerdo no banco de registradores e memória.
 
 6. **Reiniciar a Simulação**:
    - Para rodar um novo programa, reinicie a simulação e repita os passos acima.
@@ -67,7 +71,7 @@ O projeto é composto por dois principais componentes:
 
 ## Conjunto de Instruções
 
-O controlador programável suporta dois tipos de instruções:
+O controlador suporta dois tipos de instruções:
 
 ### Tipo 1 (Aritméticas e Memória)
 As instruções do Tipo 1 seguem o formato:
@@ -80,7 +84,7 @@ As instruções do Tipo 1 seguem o formato:
 Exemplo: `add rs1, rs2, rd` (Soma os valores em rs1 e rs2 e armazena o resultado em rd).
 
 ### Tipo 2 (Controle de Fluxo e Carregamento de constante)
-As instruções do Tipo 2 seguem o formato:
+As instruções de controle de fluxo usam por padrão os registradores `zero` e `um`,e seguem o seguinte formato:
 *aaaa-ffffffff-dddd*
 - **a**: Código da instrução (4 bits).
 - **f**: Valor imediato (imm8) (8 bits).
@@ -126,7 +130,8 @@ No diretório raiz do projeto, você encontrará os principais arquivos de simul
 
 O Assembler é o responsável por converter os programas escritos em linguagem assembly para código de máquina, que pode ser carregado na memória de instruções do circuito. O Assembler é implementado em C++:
 
-- **`assembler.cpp`**: Código-fonte do Assembler. Ele deve ser compilado para gerar o executável que realiza a conversão de assembly para código de máquina. Para compilar e executar o Assembler, use os seguintes comandos:
+- **`assembler.cpp`**: Código-fonte do Assembler. Ele deve ser compilado para gerar o executável que realiza a conversão de assembly para código de máquina. Para compilar e executar o Assembler, use o seguinte comando:
+OBS: É necessário ter o G++ instalado e configurado para o processo de compilação.
 ```
   g++ assembler.cpp -o assembler
 ```
@@ -136,5 +141,3 @@ assembler codigo.txt [instrucoes.txt]
 ```
 **codigo.txt**: Arquivo com o assembly escrito
 **instrucoes.txt**: Arquivo com as instruções traduzidas para codigo de maquina. Este parametro é opcional, e caso não seja fornecido o programa salva as instruções automaticamente em um arquivo **instructions.txt**
----
-Este projeto oferece uma simulação prática de uma CPU monociclo, permitindo o estudo detalhado da execução de instruções e como elas interagem com os componentes da arquitetura de 16 bits.
