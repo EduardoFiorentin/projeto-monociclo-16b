@@ -1,3 +1,6 @@
+
+
+
 INSTRUÇÕES 
 code    sintaxe                 semantica                           type
 00-     add rs1, rs2, rd        rd <- rs1 + rs2                     1
@@ -17,8 +20,6 @@ code    sintaxe                 semantica                           type
 14-     
 15-     end                     finaliza programa 
 
-? jalr rd, imm4(rs1)      rd <- PC + 1 | PC <- PC + imm4      2
-? mv rd, rs1              rd <- rs1                           1       add rd, rs1, 0000
 
 codigo de instrução 
 00-     add     0000 r      v
@@ -57,7 +58,5 @@ TIPO 2
     f - imm8
     d - rd
 
-
-EXEMPLOS
 
 
