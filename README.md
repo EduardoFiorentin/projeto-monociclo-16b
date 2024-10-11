@@ -12,6 +12,7 @@ O projeto está dividido em dois componentes principais:
 
 Este projeto oferece uma oportunidade de explorar de forma prática os conceitos teóricos de arquitetura de computadores, utilizando tanto a programação de baixo nível quanto a simulação de hardware.
 
+[Video Demonstrativo](https://youtu.be/dkT66iAQ35U)
 
 ## Arquitetura Monociclo
 
