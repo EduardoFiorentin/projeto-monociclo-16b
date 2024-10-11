@@ -40,6 +40,8 @@ O projeto é composto por dois principais componentes:
 
 1. **Abrir o arquivo "circuit.dig"**:
    - Utilize o software **Digital**. Certifique-se de que o **GHDL** está configurado para rodar no Digital.
+      - Digital: [Link](https://github.com/hneemann/Digital)
+      - GHDL: [Link](https://github.com/ghdl/ghdl)   
    - Talvez sejam necessários ajustes nas rotas da inclusão dos componentes vhdl. Para isso, basta clicar com o botão direito em cada componente e selecionar o seu arquivo .vhd correspondente.
 
 2. **Montagem e Carregamento de Instruções**:
